@@ -1,2 +1,0 @@
-# powerschool-training
-PowerSchool Training
