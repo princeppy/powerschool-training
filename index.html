@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>reveal.js</title>
+    <title>PowerSchool Training</title>
 
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
@@ -16,11 +16,157 @@
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
   </head>
+
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>Slide 1</section>
-        <section>Slide 2</section>
+        <section data-markdown>
+          <textarea data-template>
+            # Angular JS (1.4),
+            # jQuery
+            ## Basics
+          </textarea>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # Why 'requirejs' is important?
+            </textarea>
+          </section>
+          <section data-fullscreen>
+            <pre><code data-trim data-noescape>
+            <script type="text/javascript">
+              require.config({
+                waitSeconds: 0,
+                baseUrl: "/scripts/",
+                paths: {
+                  'handlebars':                'handlebars/require-handlebars.1.0.0.rc3',
+                  'json2':                     'handlebars/json2',
+                  'hbs':                       'hbs/0.4.0/hbs',
+                  'underscore':                'underscore/underscore-'+'min'+'-1.8.3',
+                  'backbone':                  'backbone/backbone-'+'min'+'-0.9.10',
+                  'jquery.cookie':             'jquery.cookie',
+                  'psDateValidate':            'psDateValidate',
+                  'psDateWidget':              'psDateWidget',
+                  'psDirtyStateController':    'psDirtyStateController',
+                  'psFormValidate':            'psFormValidate',
+                  'psNumWidget':               'psNumWidget',
+                  'psReloader/psReloader-min': 'psReloader/psReloader-min',
+                  'psRequired':                'psRequired',
+                  'psTextWidget':              'psTextWidget',
+                  'psValidationFunctions':     'psValidationFunctions',
+                  'angular':                   'lib/angular/angular.min',
+                  'angular-cookies':           'lib/angular/angular-cookies.min',
+                  'angular-route':             'lib/angular/angular-route.min',
+                  'angular-sanitize':          'lib/angular/angular-sanitize.min',
+                  'angular-translate':         'lib/angular/angular-translate.min',
+                  'angular-messages':          'lib/angular/angular-messages.min',
+                  'angular-aria':              'lib/angular/angular-aria.min',
+                  'angular-resource':      	 'lib/angular/angular-resource.min',
+                  'encoding':               	 'lib/textencoder/encoding',
+                  'filesaver':                 'lib/filesaver/FileSaver.min'
+                },
+                hbs: { disableI18n: true },
+                shim: { 
+                  'underscore': { exports: '_' },
+                  'backbone': { exports: 'Backbone', deps: ['underscore'] },
+                  'angular': { exports: 'angular' },
+                  'angular-translate':{ deps: ['angular'] },
+                  'angular-sanitize':{ deps: ['angular'] },
+                  'angular-route':{ deps: ['angular'] },
+                  'angular-cookies':{ deps: ['angular'] },
+                  'angular-messages':{ deps: ['angular'] },
+                  'angular-aria':{ deps: ['angular'] },
+                  'angular-resource': { deps: ['angular'] }
+                },
+                map: { 
+                  '*': {
+                    'Handlebars': 'handlebars'
+                  }
+                },
+                priority: [ 'angular' ]
+              });
+              define('jquery', function () { return jQuery; });
+              define('jquery-ui', ['jquery'], function($) { return $.ui; });
+              </script>
+              </code>
+              </pre>
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # Where Can I find documentations?
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ### Built-in
+              /admin/ui_examples/home.html
+              ---
+              ### MBA Customization Documentation
+              /admin/district/customizationDocs/home.html
+              ---
+              ### PowerSchool DAT Reference
+              /admin/META/dat_reference/home.html
+              ---
+              ### psQuery Documentation
+              /admin/psQuery/psQueryDocs.html
+            </textarea>
+          </section>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            # Why to split Plugin as 'Plugin' & 'Plugin.Core'
+          </textarea>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # Test Server Integration
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ### VSCode PowerSchool Sync Plugin
+              ---
+              ### Blue CPM
+              ---
+              ### Automation Script
+              ---            
+            </textarea>
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # PowerSchool Folder Structure
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              - WEB_ROOT
+                - admin
+                - guardian
+                - teachers
+                - images
+                - scripts
+                - wildcards
+            </textarea>
+          </section>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ##### `~[x:insertfile;my_fragment_file.html]`
+            Inside the my_fragment_file.html you would have your html elements and a script tag with jQuery to control the placement/display of your html elements.
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ##### `~[wc:my_fragment_file]`
+            my_fragment_file name is actually a .txt file, but the extension is not used in the `wc` tag
+          </textarea>
+        </section>
       </div>
     </div>
 
@@ -29,19 +175,16 @@
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
     <script src="plugin/math/math.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/reveal.js-plugins@latest/fullscreen/plugin.js"></script>
     <script>
-      // More info about initialization & config:
-      // - https://revealjs.com/initialization/
-      // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
-
-        // Learn about plugins: https://revealjs.com/plugins/
         plugins: [
           RevealMarkdown,
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealFullscreen,
         ],
       });
     </script>
