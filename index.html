@@ -27,6 +27,7 @@
             ## Basics
           </textarea>
         </section>
+
         <section>
           <section data-markdown>
             <textarea data-template>
@@ -89,10 +90,10 @@
               define('jquery', function () { return jQuery; });
               define('jquery-ui', ['jquery'], function($) { return $.ui; });
               </script>
-              </code>
-              </pre>
+              </code></pre>
           </section>
         </section>
+
         <section>
           <section data-markdown>
             <textarea data-template>
@@ -115,11 +116,13 @@
             </textarea>
           </section>
         </section>
+
         <section data-markdown>
           <textarea data-template>
             # Why to split Plugin as 'Plugin' & 'Plugin.Core'
           </textarea>
         </section>
+
         <section>
           <section data-markdown>
             <textarea data-template>
@@ -137,6 +140,7 @@
             </textarea>
           </section>
         </section>
+
         <section>
           <section data-markdown>
             <textarea data-template>
@@ -155,12 +159,14 @@
             </textarea>
           </section>
         </section>
+
         <section data-markdown>
           <textarea data-template>
             ##### `~[x:insertfile;my_fragment_file.html]`
             Inside the my_fragment_file.html you would have your html elements and a script tag with jQuery to control the placement/display of your html elements.
           </textarea>
         </section>
+
         <section data-markdown>
           <textarea data-template>
             ##### `~[wc:my_fragment_file]`
@@ -168,6 +174,58 @@
           </textarea>
         </section>
 
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # Page Security
+            </textarea>
+          </section>
+          <section data-fullscreen>
+            <pre><code data-trim data-noescape>
+              ~[if.~(f.table_info;table=pages;fn=count;dothisfor=all;*path=district/parentidcards/parentidcard-edit.html)=0]
+              ~(f.table_sel;table=pages;fn=create_rec)
+              ~(f.field_set;name=[pages]path;value=district/parentidcards/parentidcard-edit.html)
+              ~(f.field_set;name=[pages]security;value=00000000*00000000000000000000000000000000000000000)
+              ~(f.table_sel;table=pages;fn=save_rec)
+              ~(f.table_sel;table=pages;fn=unload_rec)
+              [/if]
+            </code></pre>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              `value=00000000*00000000000000000000000000000000000000000` 
+              
+              menas only group 9 have full access
+
+              ![](./images/page_security.png)
+            </textarea>
+          </section>
+        </section>
+        
+        <section>
+          url params `?....&log=1&debug=1`
+          <pre><code data-trim data-noescape>
+          ~[SetPostValue:logbug=~[if#log.~(gpv.log)=1]&log=1[/if#log]~[if#debug.~(gpv.debug)=1]&debug=1[/if#debug]]
+          </code>
+        </section>
+        
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              Emailing
+            </textarea>
+          </section>
+          <section data-markdown data-fullscreen>
+            <pre><code data-trim data-noescape>
+              <!-- ParentIdCard Emailer -->
+              ~[wc:parentidcards_emailer]
+            </code></pre>
+            <textarea data-template>
+              ![](./images/emailing.png)
+            </textarea>            
+          </section>
+        </section>
+      
         <section data-markdown>
           <textarea data-template>
             powered by `Prince PARK`
@@ -181,6 +239,7 @@
             prince_ppy@yahoo.com
           </textarea>
         </section>
+
       </div>
     </div>
 
